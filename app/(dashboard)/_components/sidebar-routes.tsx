@@ -9,6 +9,11 @@ const getRoutes = [
     label: "Dashboard",
     href: "/",
   },
+  {
+    icon: Compass,
+    label: "Browse",
+    href: "/search",
+  },
 ];
 
 const SidebarRoutes = () => {
