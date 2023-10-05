@@ -1,3 +1,4 @@
+import NavbarRoutes from "@/components/navbar-routes";
 import MobileSidebar from "./mobile-sidebar";
 
 const Navbar = () => {
@@ -9,6 +10,7 @@ const Navbar = () => {
       "
       >
         <MobileSidebar />
+        <NavbarRoutes />
       </div>
     </>
   );
