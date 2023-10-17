@@ -2,7 +2,7 @@
 
 import { FileUpload } from "@/components/file-upload";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import MuxPlayer from "@mux/mux-player-react"
 import { Chapter, Course, MuxData } from "@prisma/client";
 import axios from "axios";
 import { ImageIcon, Pencil, PlusCircle, Video } from "lucide-react";
@@ -49,7 +49,7 @@ const ChapterVideoForm = ({
     <>
       <div className="mt-6 border bg-slate-100 rounded-md p-4">
         <div className="font-medium flex items-center justify-between">
-          Course image
+          Chapter Video
           <Button variant="ghost" onClick={toggleEdit}>
             {isEditing && <>Cancel</>}
             {!isEditing && !initialData.videoUrl && (
@@ -72,12 +72,15 @@ const ChapterVideoForm = ({
               <Video className="h-10 w-10 text-slate-500" />
             </div>
           ) : (
-            <div className="relative aspect-video mt-2">Video uploaded</div>
+            <div className="relative aspect-video mt-2">
+              <MuxPlayer
+              playbackId={initialData?.muxData?.playbackId||""} />
+            </div>
           ))}
         {isEditing && (
           <div>
             <FileUpload
-              endpoint="courseImage"
+              endpoint="chapterVideo"
               onChange={(url) => {
                 if (url) {
                   onSubmit({ videoUrl: url });
