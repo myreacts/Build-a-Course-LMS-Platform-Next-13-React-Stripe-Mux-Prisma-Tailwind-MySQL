@@ -2,7 +2,7 @@ const { PrismaClient } = require("@prisma/client");
 
 const database = new PrismaClient();
 
-async function main() {
+export async function main() {
   try {
     await database.category.createMany({
       data: [
