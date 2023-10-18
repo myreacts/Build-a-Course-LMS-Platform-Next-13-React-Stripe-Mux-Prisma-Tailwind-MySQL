@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
+import { SearchInput } from "./search-input";
 
 const NavbarRoutes = () => {
   const pathname = usePathname();
@@ -14,8 +15,15 @@ const NavbarRoutes = () => {
   // 用户
   const isPlayerPage = pathname?.includes("/chapter");
 
+  const isSearchPage = pathname === '/search'
+
   return (
     <>
+    {isSearchPage&&(
+      <div className="hidden md:block">
+        <SearchInput />
+      </div>
+    )}
       <div className="flex gap-x-2 ml-auto">
         {isTeacherPage || isPlayerPage ? (
           <Link href="/">
