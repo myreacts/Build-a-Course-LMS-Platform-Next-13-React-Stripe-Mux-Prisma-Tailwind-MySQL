@@ -13,19 +13,19 @@ const NavbarRoutes = () => {
   // 教师
   const isTeacherPage = pathname?.startsWith("/teacher");
   // 用户
-  const isPlayerPage = pathname?.includes("/chapter");
+  const isCoursePage = pathname?.includes("/courses");
 
-  const isSearchPage = pathname === '/search'
+  const isSearchPage = pathname === "/search";
 
   return (
     <>
-    {isSearchPage&&(
-      <div className="hidden md:block">
-        <SearchInput />
-      </div>
-    )}
+      {isSearchPage && (
+        <div className="hidden md:block">
+          <SearchInput />
+        </div>
+      )}
       <div className="flex gap-x-2 ml-auto">
-        {isTeacherPage || isPlayerPage ? (
+        {isTeacherPage || isCoursePage ? (
           <Link href="/">
             <Button>
               <LogOut className="h-4 w-4 mr-2" />
