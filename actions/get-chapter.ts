@@ -92,6 +92,7 @@ export const getChapter = async ({
       nextChapter,
       userProgress,
       purchase,
+      attachments,
     };
   } catch (error) {
     console.log("[GET_CHAPTER]", error);
