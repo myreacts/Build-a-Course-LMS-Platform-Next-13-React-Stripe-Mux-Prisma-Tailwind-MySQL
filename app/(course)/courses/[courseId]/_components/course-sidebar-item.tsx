@@ -24,7 +24,7 @@ export const CourseSidebarItem = ({
   const Icon = isLocked ? Lock : isCompleted ? CheckCircle : PlayCircle;
   const isActive = pathname?.includes(id);
   const onClick = () => {
-    router.push(`/course/${courseId}/chapters/${id}`);
+    router.push(`/courses/${courseId}/chapters/${id}`);
   };
   return (
     <button
