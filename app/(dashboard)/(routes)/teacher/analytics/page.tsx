@@ -2,6 +2,7 @@ import { getAnalytics } from "@/actions/get-analytics";
 import { auth } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { DataCard } from "./_components/data-card";
+import { Chart } from "./_components/chart";
 
 const AnalyticsPage = async () => {
   const { userId } = auth();
@@ -16,6 +17,7 @@ const AnalyticsPage = async () => {
         <DataCard value={totalRevenue} shouldFormat label="Total Revenue" />
         <DataCard value={totalSales} label="Total Sales" />
       </div>
+      <Chart data={data} />
     </div>
   );
 };
